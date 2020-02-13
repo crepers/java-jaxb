@@ -9,7 +9,7 @@ Web Services를 사용하기 위해 stub class들을 만들어야 합니다. xjc
     ```
     xjc -d output -p com.wcjung.sample -encoding UTF-8 *
     xjc -d output -p com.wcjung.sample -encoding UTF-8 -wsdl http://10.xxx.xxx.xxx/services/
-    xjc -d output -p com.lj.support.integration.soap.ibs.domain.booking -encoding UTF-8 -wsdl http://10.xxx.xxx.xxx/services/ServicePort?wsdl
+    xjc -d output -p com.wcjung.sample -encoding UTF-8 -wsdl http://10.xxx.xxx.xxx/services/ServicePort?wsdl
     ```
 
 ---
