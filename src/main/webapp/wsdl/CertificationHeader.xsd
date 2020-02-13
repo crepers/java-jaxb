@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.wcjung.com/CertificationHeader"
+	xmlns:tns="http://www.wcjung.com/CertificationHeader" elementFormDefault="unqualified">
+	<element name="userinfo">
+		<complexType>
+			<sequence>				
+				<element minOccurs="1" name="UserName" type="string" />
+				<element minOccurs="1" name="Credential" type="string" />
+			</sequence>
+		</complexType>
+	</element>	
+</schema>

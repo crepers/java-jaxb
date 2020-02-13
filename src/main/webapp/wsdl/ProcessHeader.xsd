@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.wcjung.com/ProcessHeader"
+	xmlns:tns="http://www.wcjung.com/ProcessHeader" elementFormDefault="unqualified">
+	<element name="processinfo">
+		<complexType>
+			<sequence>
+				<element minOccurs="1" name="UserId" type="string" />
+				<element minOccurs="1" name="ChannelId" type="string" />
+				<element minOccurs="1" name="RequestId" type="string" />
+			</sequence>
+		</complexType>
+	</element>	
+</schema>

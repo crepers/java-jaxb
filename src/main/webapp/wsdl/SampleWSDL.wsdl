@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:tns="http://sample.wcjung.com/SampleWSDL/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+	xmlns:header="http://sample.wcjung.com/HeaderDefinition" name="SampleWSDL"
+	xmlns:cert="http://www.wcjung.com/CertificationHeader" 
+	xmlns:proc="http://www.wcjung.com/ProcessHeader"
+	xmlns:resp="http://www.wcjung.com/ResponseHeader" 
+	targetNamespace="http://sample.wcjung.com/SampleWSDL/">
+	<wsdl:types>
+		<xsd:schema xmlns="http://www.w3.org/2001/XMLSchema">
+			<xsd:import namespace="http://www.wcjung.com/CertificationHeader" schemaLocation="../wsdl/CertificationHeader.xsd"/>
+			<xsd:import namespace="http://www.wcjung.com/ProcessHeader" schemaLocation="../wsdl/ProcessHeader.xsd"/>
+			<xsd:import namespace="http://www.wcjung.com/ResponseHeader" schemaLocation="../wsdl/ResponseHeader.xsd"/>
+			
+			<xsd:import namespace="http://sample.wcjung.com/SampleWSDL/" schemaLocation="../wsdl/ReqResDefinition.xsd" />
+
+		</xsd:schema>
+	</wsdl:types>
+	
+	<wsdl:message name="CertificationHeader">
+		<wsdl:part element="cert:userinfo" name="CertHeader" />
+	</wsdl:message>
+	
+	<wsdl:message name="ProcessHeader">
+		<wsdl:part element="proc:processinfo" name="ProcHeader" />
+	</wsdl:message>
+	
+	<wsdl:message name="ResponseHeader">
+		<wsdl:part element="resp:status" name="ResHeader" />
+	</wsdl:message>
+	
+	
+	<wsdl:message name="SampleOperationRequest">
+		<wsdl:part element="tns:SampleOperation" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="SampleOperationResponse">
+		<wsdl:part element="tns:SampleOperationResponse" name="parameters" />
+	</wsdl:message> 
+	<wsdl:portType name="SampleWSDL">
+		<wsdl:operation name="SampleOperation">
+			<wsdl:input message="tns:SampleOperationRequest" />
+			<wsdl:output message="tns:SampleOperationResponse" />
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="SampleWSDLSOAP" type="tns:SampleWSDL">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="SampleOperation">
+			<soap:operation
+				soapAction="http://sample.wcjung.com/SampleWSDL/SampleOperation" />
+			<wsdl:input>
+				<soap:header message="tns:CertificationHeader" part="CertHeader" use="literal" />	
+				<soap:header message="tns:ProcessHeader" part="ProcHeader" use="literal" />
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:header message="tns:ResponseHeader" part="ResHeader" use="literal" />				
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="SampleWSDL">
+		<wsdl:port binding="tns:SampleWSDLSOAP" name="SampleWSDLSOAP">
+			<soap:address location="http://localhost:8080/sample/api" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

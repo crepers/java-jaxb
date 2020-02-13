@@ -1,0 +1,52 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.wcjung.sample</groupId>
+	<artifactId>jaxb-sample</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
+	<name>jaxb-sample</name>
+	<description>sample project</description>
+	<dependencies>
+	</dependencies>
+	<build>
+		<pluginManagement>
+	        <plugins>
+	            <plugin>
+	                <groupId>org.apache.maven.plugins</groupId>
+	                <artifactId>maven-compiler-plugin</artifactId>
+	                <configuration>
+	                    <source>1.8</source>
+	                    <target>1.8</target>
+	                </configuration>
+	            </plugin>
+	        </plugins>
+	    </pluginManagement>
+		<plugins>
+			 <plugin>
+				<groupId>org.jvnet.jaxb2.maven2</groupId>
+				<artifactId>maven-jaxb2-plugin</artifactId>
+				<version>0.13.1</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<encoding>UTF-8</encoding>
+				<schemaDirectory>${project.basedir}/src/main/webapp/wsdl</schemaDirectory>
+					<generatePackage>com.wcjung.sample.ws</generatePackage>									
+					<schemaIncludes>
+						<include>*.wsdl</include>
+					</schemaIncludes>
+					<bindingDirectory>${project.basedir}/src/main/webapp/wsdlBinding</bindingDirectory>
+					<bindingIncludes>						
+						<bindingInclude>binding_serialize.xjb</bindingInclude>
+					</bindingIncludes>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

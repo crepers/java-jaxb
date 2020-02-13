@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" 
+		targetNamespace="http://sample.wcjung.com/SampleWSDL/"
+		xmlns:tns="http://sample.wcjung.com/SampleWSDL/" 
+		version="1.00" 
+		elementFormDefault="qualified">
+	<element name="SampleOperation">
+		<complexType>
+			<sequence>
+				<element name="id" maxOccurs="1" minOccurs="1">
+					<simpleType>
+						<restriction base="string">
+							<minLength value="0"></minLength>
+							<maxLength value="4"></maxLength>
+							<whiteSpace value="collapse"></whiteSpace>
+							<enumeration value="1"></enumeration>
+							<enumeration value="2"></enumeration>
+							<enumeration value="3"></enumeration>
+						</restriction>
+					</simpleType>
+				</element>
+				<element name="seq" type="string" />
+				<element name="tid" type="string"></element>
+			</sequence>
+		</complexType>
+	</element>
+	<element name="SampleOperationResponse">
+		<complexType>
+			<sequence>
+				<element name="resultMsg">
+					<simpleType>
+						<restriction base="string">
+							<enumeration value="value"></enumeration>
+						</restriction>
+					</simpleType>
+				</element>
+				<element name="resultCd" type="string"></element>
+			</sequence>
+		</complexType>
+	</element>
+</schema>

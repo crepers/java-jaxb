@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jaxb:bindings version="1.0" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+               xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+               xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc">
+    <jaxb:globalBindings>
+        <jaxb:serializable uid="-1"/>
+        <jaxb:javaType name="java.util.GregorianCalendar"
+			xmlType="xsd:dateTime"
+			parseMethod="javax.xml.bind.DatatypeConverter.parseDateTime"
+			printMethod="javax.xml.bind.DatatypeConverter.printDateTime" />
+		<jaxb:javaType name="java.util.GregorianCalendar"
+			xmlType="xsd:date"
+			parseMethod="javax.xml.bind.DatatypeConverter.parseDate"
+			printMethod="javax.xml.bind.DatatypeConverter.printDate" />
+		<jaxb:javaType name="java.util.GregorianCalendar"
+			xmlType="xsd:time"
+			parseMethod="javax.xml.bind.DatatypeConverter.parseTime"
+			printMethod="javax.xml.bind.DatatypeConverter.printTime" />
+    </jaxb:globalBindings>
+</jaxb:bindings>
